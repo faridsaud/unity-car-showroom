@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class FinishLineController : MonoBehaviour
 {
+    private string _winnerTag;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,14 +22,21 @@ public class FinishLineController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        SetWinner(other.tag);
-        StopGame();
+        if (_winnerTag == null)
+        {
+            Debug.Log("Winner! " + other.tag);
+            SetWinner(other.tag);
+            StopGame();
+        }
     }
 
     private void SetWinner(string winnerTag)
     {
+        _winnerTag = winnerTag;
         GameObject winnerTextbox = GameObject.FindGameObjectsWithTag("Winner")[0];
-        winnerTextbox.GetComponent<TextMeshPro>().SetText(winnerTag);
+        Debug.Log("Winner Object ");
+        Debug.Log(winnerTextbox);
+        winnerTextbox.GetComponent<TextMeshProUGUI>().SetText($"The winner is: {_winnerTag}");
     }
 
     private void StopGame()
