@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Car3
+  - Car1
+  - Car2
+  - Winner
+  - Resume
   layers:
   - Default
   - TransparentFX
