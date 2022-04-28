@@ -11,6 +11,8 @@ public class CarController : MonoBehaviour
     public Slider slider;
 
     private bool _isRunning;
+
+    private Animator _animator;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,12 +20,15 @@ public class CarController : MonoBehaviour
         {
             speed = slider.value;
         }
+
+        _animator = GetComponent<Animator>();
+        StartCoroutine(StartStopCar());
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        StartCoroutine(StartStopCar());
     }
 
     public void SetSpeed(float s)
@@ -36,13 +41,27 @@ public class CarController : MonoBehaviour
         SetSpeed(s.value);
     }
 
-    public void StartEngine()
+    public void StartCar()
     {
         _isRunning = true;
     }
     
-    public void StopEngine()
+    public void StopCar()
     {
-        _isRunning = true;
+        _isRunning = false;
     }
+
+    IEnumerator StartStopCar()
+    {
+        Debug.Log("Start stop car ==> running: " + _isRunning);
+        
+        _animator.SetBool("isRunning", _isRunning);
+        if (_isRunning)
+        {
+            transform.position -= new Vector3( (speed * Time.deltaTime * 3f), 0f, 0f);
+        }
+        yield return new WaitForSeconds(0.01f);
+    }
+
+
 }
