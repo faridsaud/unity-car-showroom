@@ -36,9 +36,9 @@ public class CarController : MonoBehaviour
 
     public void StartCar(bool shouldRandomizeSpeed)
     {
+        _shouldRandomizeSpeed = shouldRandomizeSpeed;
         Debug.Log("Starting Car ==> Randomize Speeds: " + _shouldRandomizeSpeed);
         _isRunning = true;
-        _shouldRandomizeSpeed = shouldRandomizeSpeed;
     }
     
     public void StopCar()
@@ -52,7 +52,7 @@ public class CarController : MonoBehaviour
         if (_isRunning)
         {
             float s = GetSpeed();
-            Debug.Log("Speed " + s);
+            // Debug.Log("Speed " + s);
             transform.position -= new Vector3( (s * Time.deltaTime * 3f), 0f, 0f);
         }
         yield return new WaitForSeconds(0.01f);
@@ -62,7 +62,7 @@ public class CarController : MonoBehaviour
     {
         if (_shouldRandomizeSpeed)
         {
-            return Random.Range(0, 1);
+            return Random.Range(0f, 1f);
         }
 
         return speed;
