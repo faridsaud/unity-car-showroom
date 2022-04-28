@@ -2,15 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class RaceController : MonoBehaviour
 {
-    private bool canCarsMove;
+    private bool _canCarsMove;
     public GameObject[] cars;
+
+    private bool _shouldRandomizeSpeed;
+
     // Start is called before the first frame update
     void Start()
     {
-        canCarsMove = false;
+        _canCarsMove = false;
+        _shouldRandomizeSpeed = false;
     }
 
     // Update is called once per frame
@@ -20,18 +25,24 @@ public class RaceController : MonoBehaviour
 
     public void ToggleCarsMovement()
     {
-        canCarsMove = !canCarsMove;
+        _canCarsMove = !_canCarsMove;
         foreach (GameObject car in cars)
         {
             CarController carController = car.GetComponent<CarController>();
-            if (canCarsMove)
+            if (_canCarsMove)
             {
-                carController.StartCar();
+                carController.StartCar(_shouldRandomizeSpeed);
             }
             else
             {
                 carController.StopCar();
             }
         }
+    }
+
+    public void OnToggleRandomSpeeds(Toggle toggle)
+    {
+        _shouldRandomizeSpeed = toggle.isOn;
+        Debug.Log("_shouldRandomizeSpeed RaceController"+ _shouldRandomizeSpeed);
     }
 }

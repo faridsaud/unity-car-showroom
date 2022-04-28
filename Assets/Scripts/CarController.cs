@@ -3,29 +3,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class CarController : MonoBehaviour
 {
-    public float speed = 1f;
-
-    public Slider slider;
+    public float speed;
 
     private bool _isRunning;
+    private bool _shouldRandomizeSpeed;
 
     private Animator _animator;
-    // Start is called before the first frame update
     void Start()
     {
-        if (slider != null)
-        {
-            speed = slider.value;
-        }
-
         _animator = GetComponent<Animator>();
         StartCoroutine(StartStopCar());
     }
 
-    // Update is called once per frame
     void Update()
     {
         StartCoroutine(StartStopCar());
@@ -41,9 +34,11 @@ public class CarController : MonoBehaviour
         SetSpeed(s.value);
     }
 
-    public void StartCar()
+    public void StartCar(bool shouldRandomizeSpeed)
     {
+        Debug.Log("Starting Car ==> Randomize Speeds: " + _shouldRandomizeSpeed);
         _isRunning = true;
+        _shouldRandomizeSpeed = shouldRandomizeSpeed;
     }
     
     public void StopCar()
@@ -53,14 +48,24 @@ public class CarController : MonoBehaviour
 
     IEnumerator StartStopCar()
     {
-        Debug.Log("Start stop car ==> running: " + _isRunning);
-        
         _animator.SetBool("isRunning", _isRunning);
         if (_isRunning)
         {
-            transform.position -= new Vector3( (speed * Time.deltaTime * 3f), 0f, 0f);
+            float s = GetSpeed();
+            Debug.Log("Speed " + s);
+            transform.position -= new Vector3( (s * Time.deltaTime * 3f), 0f, 0f);
         }
         yield return new WaitForSeconds(0.01f);
+    }
+
+    private float GetSpeed()
+    {
+        if (_shouldRandomizeSpeed)
+        {
+            return Random.Range(0, 1);
+        }
+
+        return speed;
     }
 
 
