@@ -213,9 +213,8 @@ GameObject:
   m_Component:
   - component: {fileID: 90283378}
   - component: {fileID: 90283379}
-  - component: {fileID: 90283380}
   m_Layer: 5
-  m_Name: SpeedSlider
+  m_Name: SpeedSlider3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -293,20 +292,19 @@ MonoBehaviour:
   m_Value: 0.5
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
---- !u!114 &90283380
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 90283377}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddd2dfa938e874a5e89634088242e18b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  carContainerTransform: {fileID: 0}
+      m_Calls:
+      - m_Target: {fileID: 1734035675}
+        m_TargetAssemblyTypeName: CarController, Assembly-CSharp
+        m_MethodName: UpdateCarSpeed
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 90283379}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &139038544
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -559,6 +557,30 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!1 &150631206 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 046a7d810eab343d8a2a1d45a400ae0b, type: 3}
+  m_PrefabInstance: {fileID: 440372693}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &150631207
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150631206}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0ec242e5802024b7694f54d656254ef9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &162979925
 GameObject:
   m_ObjectHideFlags: 0
@@ -874,7 +896,7 @@ GameObject:
   - component: {fileID: 315956263}
   - component: {fileID: 315956264}
   m_Layer: 5
-  m_Name: SpeedSlider
+  m_Name: SpeedSlider1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -952,7 +974,19 @@ MonoBehaviour:
   m_Value: 0.5
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 744324947}
+        m_TargetAssemblyTypeName: CarController, Assembly-CSharp
+        m_MethodName: UpdateCarSpeed
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 315956264}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &325071110
 GameObject:
   m_ObjectHideFlags: 0
@@ -1854,6 +1888,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 046a7d810eab343d8a2a1d45a400ae0b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -5816913209878649045, guid: 046a7d810eab343d8a2a1d45a400ae0b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -5816913209878649045, guid: 046a7d810eab343d8a2a1d45a400ae0b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -5816913209878649045, guid: 046a7d810eab343d8a2a1d45a400ae0b, type: 3}
+      propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4897732323685117858, guid: 046a7d810eab343d8a2a1d45a400ae0b, type: 3}
@@ -2783,6 +2829,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 744324946}
+  - component: {fileID: 744324947}
+  - component: {fileID: 744324948}
   m_Layer: 0
   m_Name: Car1Container
   m_TagString: Untagged
@@ -2805,6 +2853,39 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &744324947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 744324945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db83e5ab8ba9241d28f0533da2957a26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  slider: {fileID: 315956264}
+--- !u!95 &744324948
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 744324945}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 387e559e7889c4478b3edea009a327c1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &784991647
 GameObject:
   m_ObjectHideFlags: 0
@@ -2929,15 +3010,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 046a7d810eab343d8a2a1d45a400ae0b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.471609
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 046a7d810eab343d8a2a1d45a400ae0b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.874802
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 046a7d810eab343d8a2a1d45a400ae0b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -28.054083
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 046a7d810eab343d8a2a1d45a400ae0b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3305,6 +3386,7 @@ GameObject:
   - component: {fileID: 1053957073}
   - component: {fileID: 1053957072}
   - component: {fileID: 1053957071}
+  - component: {fileID: 1053957074}
   m_Layer: 5
   m_Name: Start
   m_TagString: Untagged
@@ -3375,7 +3457,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1053957072}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1053957074}
+        m_TargetAssemblyTypeName: StartRace, Assembly-CSharp
+        m_MethodName: OnGameStart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1053957072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3414,6 +3508,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1053957069}
   m_CullTransparentMesh: 1
+--- !u!114 &1053957074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1053957069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98eada358b44d4ef4ad84aead8acbef0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cars:
+  - {fileID: 1734035673}
+  - {fileID: 1216602512}
+  - {fileID: 744324945}
 --- !u!1 &1094314678
 GameObject:
   m_ObjectHideFlags: 0
@@ -3513,7 +3623,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1129735189}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.471609, y: -2.4948022, z: 30}
+  m_LocalPosition: {x: -25.41, y: 0.57, z: -25.49}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 486500245}
@@ -4268,7 +4378,7 @@ GameObject:
   - component: {fileID: 1216532178}
   - component: {fileID: 1216532179}
   m_Layer: 5
-  m_Name: SpeedSlider
+  m_Name: SpeedSlider2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4346,7 +4456,19 @@ MonoBehaviour:
   m_Value: 0.5
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1216602514}
+        m_TargetAssemblyTypeName: CarController, Assembly-CSharp
+        m_MethodName: UpdateCarSpeed
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1216532179}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1216602512
 GameObject:
   m_ObjectHideFlags: 0
@@ -4356,6 +4478,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1216602513}
+  - component: {fileID: 1216602514}
+  - component: {fileID: 1216602515}
   m_Layer: 0
   m_Name: Car2Container
   m_TagString: Untagged
@@ -4378,6 +4502,39 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1216602514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1216602512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db83e5ab8ba9241d28f0533da2957a26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  slider: {fileID: 1216532179}
+--- !u!95 &1216602515
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1216602512}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 387e559e7889c4478b3edea009a327c1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1247468586
 GameObject:
   m_ObjectHideFlags: 0
@@ -5049,6 +5206,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1734035674}
+  - component: {fileID: 1734035675}
+  - component: {fileID: 1734035676}
   m_Layer: 0
   m_Name: Car3Container
   m_TagString: Untagged
@@ -5071,6 +5230,39 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1734035675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1734035673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db83e5ab8ba9241d28f0533da2957a26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  slider: {fileID: 90283379}
+--- !u!95 &1734035676
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1734035673}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 387e559e7889c4478b3edea009a327c1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1758634206
 GameObject:
   m_ObjectHideFlags: 0
