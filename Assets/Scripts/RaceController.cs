@@ -43,6 +43,5 @@ public class RaceController : MonoBehaviour
     public void OnToggleRandomSpeeds(Toggle toggle)
     {
         _shouldRandomizeSpeed = toggle.isOn;
-        Debug.Log("_shouldRandomizeSpeed RaceController"+ _shouldRandomizeSpeed);
     }
 }

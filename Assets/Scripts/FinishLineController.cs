@@ -24,7 +24,6 @@ public class FinishLineController : MonoBehaviour
     {
         if (_winnerTag == null)
         {
-            Debug.Log("Winner! " + other.tag);
             SetWinner(other.tag);
             StopGame();
         }
@@ -34,8 +33,6 @@ public class FinishLineController : MonoBehaviour
     {
         _winnerTag = winnerTag;
         GameObject winnerTextbox = GameObject.FindGameObjectsWithTag("Winner")[0];
-        Debug.Log("Winner Object ");
-        Debug.Log(winnerTextbox);
         winnerTextbox.GetComponent<TextMeshProUGUI>().SetText($"The winner is: {_winnerTag}");
     }
 
